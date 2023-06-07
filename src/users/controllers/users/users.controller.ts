@@ -5,14 +5,12 @@ import { SerializedUser } from 'src/users/types';
 @Controller('users')
 export class UsersController {
 
-    constructor(@Inject('UserService') private readonly
-    userService: UsersService) {}
+    constructor(private readonly userService: UsersService) {}
 
     @Get('')
     getUsers() {
         return this.userService.getUsers();
     }
-
 
     @UseInterceptors(ClassSerializerInterceptor)
     @Get('/:username')
